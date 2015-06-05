@@ -25,11 +25,7 @@ public class GenericDaoImpl <T extends AbstractEntity> implements GenericDao<T> 
     @Inject
     private Session hibernate;
     
-    @Override
-    public T merge(T obj) {
-        return (T) hibernate.merge(obj);
-    }
-
+   
     @Override
     public T delete(Integer idOfObj, Class klasa) {
       AbstractEntity tmpEntity = (AbstractEntity) hibernate.createCriteria(klasa).add(Restrictions.eq("id",
